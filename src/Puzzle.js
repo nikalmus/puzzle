@@ -25,20 +25,20 @@ class Puzzle extends Component {
     });
   }
 
-  handleDrop(e, index, targetName) {
-    let target = this.state[targetName];
+  handleDrop(e, index, targetBoard) {
+    let target = this.state[targetBoard];
     if (target[index]) return;
 
     const pieceOrder = e.dataTransfer.getData('text');
     const pieceData = this.state.pieces.find(p => p.order === +pieceOrder);
     const origin = this.state[pieceData.board];
 
-    if (targetName === pieceData.board) target = origin;
+    if (targetBoard === pieceData.board) target = origin;
     origin[origin.indexOf(pieceData)] = undefined;
     target[index] = pieceData;
-    pieceData.board = targetName;
+    pieceData.board = targetBoard;
 
-    this.setState({ [pieceData.board]: origin, [targetName]: target })
+    this.setState({ [pieceData.board]: origin, [targetBoard]: target })
   }
 
   handleDrag(e, order) {
