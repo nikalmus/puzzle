@@ -1,22 +1,59 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #09d3ac;
-}
+.puzzle{
+    text-align: center;
+  }
+  
+  .ordered-board{
+    position: relative;
+    background-size: cover;
+  }
+  
+  .ordered-board:before{
+    content: '';
+    background-color: rgba(255, 255, 255, 0.6);
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+  
+  .ordered-board,
+  .shuffled-board{
+    margin: 10px auto;
+    width: 800px;
+    height: 640px;
+    list-style-type: none;
+    padding: 0;
+    font-size: 0;
+    border: 1px solid #DDD;
+    border-width: 1px 0 0 1px;
+  }
+  
+  .puzzle li{
+    position: relative;
+    text-align: left;
+    display: inline-block; 
+    width: 159px;
+    height: 159px;
+    border: 1px solid #DDD;
+    border-width: 0 1px 1px 0;
+  }
+  
+  .puzzle li:empty:hover:before{
+    opacity: 1;
+  }
+  
+  .puzzle li img{
+    width: 160px;
+    height: 160px;
+    position: absolute;
+    cursor: grab;
+    transition: transform 200ms ease, box-shadow 200ms ease;
+  }
+  
+  .puzzle li img:hover{
+    z-index: 2;
+    transform: scale(1.1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+  }
