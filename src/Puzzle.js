@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import originalImage from './images/main.png';
+import originalImage from './images/main-int-ci.png';
 import './App.css';
 
 class Puzzle extends Component {
@@ -10,10 +10,10 @@ class Puzzle extends Component {
   };
 
   componentDidMount() {
-    const pieces = [...Array(20)]
+    const pieces = [...Array(8)]
       .map((_, i) => (
         {
-          img: `festival${i+1}.png`,
+          img: `int-ci${i+1}.png`,
           order: i,
           board: 'shuffledBoard' 
         }
@@ -21,7 +21,7 @@ class Puzzle extends Component {
     this.setState({
       pieces,
       shuffledBoard: this.shuffle(pieces),
-      orderedBoard: [...Array(20)]
+      orderedBoard: [...Array(8)]
     });
   }
 
